@@ -53,7 +53,18 @@ pipeline {
             $ECR_REGISTRY/$ECR_REPOSITORY:v1
         '''
     }
+   
+   }
+   stage('Deploy to Amazon ECS') {
+    steps {
+        sh '''
+            aws ecs update-service \
+                --cluster myapp \
+                --service myappservice \
+                --force-new-deployment \
+                --region us-east-1
+        '''
+    }
    }
   } 
-
 }
