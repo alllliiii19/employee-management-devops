@@ -14,6 +14,17 @@ pipeline {
             sh 'mvn clean package'
         }
     }
+
+    stage('SonarQube Analysis') {
+    steps {
+        withSonarQubeEnv('SonarQube') {
+            sh '''
+                mvn sonar:sonar \
+                -Dsonar.projectKey=employee-management-devops
+            '''
+        }
+    }
+}
   } 
 
 }
