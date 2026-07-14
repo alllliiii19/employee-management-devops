@@ -23,8 +23,15 @@ pipeline {
                 -Dsonar.projectKey=employee-management-devops
             '''
         }
+      }
     }
-}
+    stage('Docker Build') {
+    steps {
+        sh '''
+            docker build -t employee-management-webapp:v1 .
+        '''
+    }
+   }
   } 
 
 }
