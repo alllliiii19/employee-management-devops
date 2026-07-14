@@ -60,7 +60,7 @@ pipeline {
         sh '''
             aws ecs update-service \
                 --cluster myapp \
-                --service myappservice \
+                --service myapptask-service-zjhgjx9z \
                 --force-new-deployment \
                 --region us-east-1
         '''
