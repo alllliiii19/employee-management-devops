@@ -116,6 +116,23 @@ Through this project, I gained hands-on experience with:
 - DevOps troubleshooting and automation
 
 ---
+## Architecture
+
+```mermaid
+flowchart TD
+
+A[GitHub Repository] --> B[Jenkins Pipeline]
+
+B --> C[Checkout Source Code]
+C --> D[Maven Build]
+D --> E[Unit Tests]
+E --> F[SonarQube Analysis]
+F --> G[Docker Build]
+G --> H[Push Docker Image to Amazon ECR]
+H --> I[Amazon ECS Fargate]
+I --> J[Application Load Balancer]
+J --> K[Employee Management Web Application]
+```
 
 ## Author
 
